@@ -24,7 +24,7 @@ Client.on("message", async message => {
                 var file = fs.createWriteStream("/home/justiceserv/public_html/file.personal.pluxcon.network/" + filename);
                 var request = https.get(attachment.url, function(response){
                     response.pipe(file); 
-                    stringrray += `${config.finalurl} + ${filename}`;
+                    stringrray += `${config.finalurl}${filename}`;
                 });
             });
             setTimeout(() => {
