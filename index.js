@@ -26,9 +26,9 @@ Client.on("message", async message => {
                 stringrray += DataArray[i] + "\n"; 
             }
             var successembed = new Discord.MessageEmbed()
-                .setColor("")
+                .setColor("#40ff60")
                 .setTitle("Upload Successful!")
-                .setDescription(stringrray)
+                .setDescription(`${stringrray}`)
                 .setTimestamp()
                 .setFooter("UploaderBot made by Justiceserv#0001")
             message.channel.send(successembed); 
@@ -48,3 +48,4 @@ Client.on("message", async message => {
     }
 });
 Client.login(config.token); 
+console.log("Successfully logged in.");
