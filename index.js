@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const Client = new Discord.Client(); 
 const https = require('https');
 const config = require('./config/config.json');
+const fs = require('fs');
 
 Client.on('unhandledRejection', error => console.error('Uncaught Promise Rejection', error));
 Client.on("message", async message => {

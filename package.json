@@ -1,11 +1,25 @@
 {
   "name": "uploaderbot",
   "version": "1.0.0",
-  "description": "",
+  "description": "discord bot for my personal usage",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "justiceserv",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "fs": "0.0.1-security",
+    "https": "^1.0.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justiceserv/UploaderBot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/justiceserv/UploaderBot/issues"
+  },
+  "homepage": "https://github.com/justiceserv/UploaderBot#readme"
 }
