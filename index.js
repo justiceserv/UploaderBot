@@ -8,10 +8,10 @@ Client.on('unhandledRejection', error => console.error('Uncaught Promise Rejecti
 Client.on("message", async message => {
     if(!message.guild && message.author.id === config.owner && message.attachments.size > 0)
     {
+        var stringrray = "Your CDN link is: \n"
         try
         {
             var Attachment = (message.attachments).array(); 
-            const stringrray = "Your CDN link is: \n"
             Attachment.forEach(function(attachment) {
                 var filename = attachment.name; 
                 while(fs.existsSync("/home/justiceserv/public_html/file.personal.pluxcon.network/" + filename))
@@ -27,15 +27,16 @@ Client.on("message", async message => {
                     stringrray += `${config.finalurl} + ${filename}`;
                 });
             });
-            setTimeout(1000);
-            var successembed = new Discord.MessageEmbed()
-                .setColor("#40ff60")
-                .setTitle("Upload Successful!")
-                .setDescription(`${stringrray}`)
-                .setTimestamp()
-                .setFooter("UploaderBot made by Justiceserv#0001")
-            message.channel.send(successembed); 
-            console.log(Attachment); 
+            setTimeout(() => {
+                var successembed = new Discord.MessageEmbed()
+                    .setColor("#40ff60")
+                    .setTitle("Upload Successful!")
+                    .setDescription(`${stringrray}`)
+                    .setTimestamp()
+                    .setFooter("UploaderBot made by Justiceserv#0001")
+                message.channel.send(successembed); 
+                console.log(Attachment); 
+            }, 1000 * 10);
         }
         catch(Exception)
         {
