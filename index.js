@@ -6,15 +6,18 @@ const fs = require('fs');
 
 Client.on('unhandledRejection', error => console.error('Uncaught Promise Rejection', error));
 Client.on("message", async message => {
-    var DataArray = []; 
     if(!message.guild && message.author.id === config.owner && message.attachments.size > 0)
     {
         try
         {
             var Attachment = (message.attachments).array(); 
-            var stringrray = "Your CDN link is: \n"
+            const stringrray = "Your CDN link is: \n"
             Attachment.forEach(function(attachment) {
-            var filename = attachment.name; 
+                var filename = attachment.name; 
+                while(fs.existsSync("/home/justiceserv/public_html/file.personal.pluxcon.network/" + filename))
+                {
+                    filename = filename +  "_1"; 
+                }
                 var file = fs.createWriteStream("/home/justiceserv/public_html/file.personal.pluxcon.network/" + filename);
                 var request = https.get(attachment.url, function(response){
                     response.pipe(file); 
