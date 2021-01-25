@@ -16,10 +16,8 @@ Client.on("message", async message => {
                 var filename = attachment.name; 
                 while(fs.existsSync("/home/justiceserv/public_html/file.personal.pluxcon.network/" + filename))
                 {
-                    var re = /(?:\.([^.]+))?$/;
-                    var ext = re.exec(filename)[1];
-                    var ext1 = re.exec(filename)[0];
-                    filename = ext1 +  "_1." + ext; 
+                    var ext = filename.split(filename.lastIndexOf('.') + 1);
+                    filename = ext[0] + "_1" + ext[1];
                 }
                 var file = fs.createWriteStream("/home/justiceserv/public_html/file.personal.pluxcon.network/" + filename);
                 var request = https.get(attachment.url, function(response){
