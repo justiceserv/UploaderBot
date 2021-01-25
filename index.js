@@ -12,21 +12,15 @@ Client.on("message", async message => {
         try
         {
             var Attachment = (message.attachments).array(); 
-            var u = 0; 
+            var stringrray = "Your CDN link is: \n"
             Attachment.forEach(function(attachment) {
             var filename = attachment.name; 
                 var file = fs.createWriteStream("/home/justiceserv/public_html/file.personal.pluxcon.network/" + filename);
                 var request = https.get(attachment.url, function(response){
                     response.pipe(file); 
-                    DataArray[u] = `${config.finalurl} + ${filename}`; 
-                    u++; 
+                    stringrray += `${config.finalurl} + ${filename}`;
                 });
             });
-            var stringrray = "Your attachment CDN URL is: \n"; 
-            for(var i = 0; i < DataArray.length; i++)
-            {
-                stringrray += DataArray[i] + "\n"; 
-            }
             var successembed = new Discord.MessageEmbed()
                 .setColor("#40ff60")
                 .setTitle("Upload Successful!")
