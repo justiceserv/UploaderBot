@@ -16,7 +16,10 @@ Client.on("message", async message => {
                 var filename = attachment.name; 
                 while(fs.existsSync("/home/justiceserv/public_html/file.personal.pluxcon.network/" + filename))
                 {
-                    filename = filename +  "_1"; 
+                    var re = /(?:\.([^.]+))?$/;
+                    var ext = re.exec("file.name.with.dots.txt")[1];
+                    var ext1 = re.exec("file.name.with.dots.txt")[0];
+                    filename = ext1 +  "_1." + ext; 
                 }
                 var file = fs.createWriteStream("/home/justiceserv/public_html/file.personal.pluxcon.network/" + filename);
                 var request = https.get(attachment.url, function(response){
@@ -24,6 +27,7 @@ Client.on("message", async message => {
                     stringrray += `${config.finalurl} + ${filename}`;
                 });
             });
+            setTimeout(1000);
             var successembed = new Discord.MessageEmbed()
                 .setColor("#40ff60")
                 .setTitle("Upload Successful!")
