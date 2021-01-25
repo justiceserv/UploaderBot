@@ -17,8 +17,8 @@ Client.on("message", async message => {
                 while(fs.existsSync("/home/justiceserv/public_html/file.personal.pluxcon.network/" + filename))
                 {
                     var re = /(?:\.([^.]+))?$/;
-                    var ext = re.exec("file.name.with.dots.txt")[1];
-                    var ext1 = re.exec("file.name.with.dots.txt")[0];
+                    var ext = re.exec(filename)[1];
+                    var ext1 = re.exec(filename)[0];
                     filename = ext1 +  "_1." + ext; 
                 }
                 var file = fs.createWriteStream("/home/justiceserv/public_html/file.personal.pluxcon.network/" + filename);
@@ -36,7 +36,7 @@ Client.on("message", async message => {
                     .setFooter("UploaderBot made by Justiceserv#0001")
                 message.channel.send(successembed); 
                 console.log(Attachment); 
-            }, 1000 * 10);
+            }, 500 * 1);
         }
         catch(Exception)
         {
