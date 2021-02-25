@@ -1,5 +1,7 @@
 {
     "token" : "",
     "finalurl" : "https://cdn.personal.pluxcon.network/",
-    "owner" : ""
+    "owner" : "",
+    "prefix" : "@",
+    "rebrandlyapi" : "cc7a17def50d40f791d2d91b1e377653"
 }
